@@ -1,0 +1,69 @@
+name: Build And Publish To NPM
+
+on:
+  release:
+    types: [published]
+
+env:
+  NODE_AUTH_TOKEN: ${{ secrets.NPM_KEY }}
+
+jobs:
+  build:
+    runs-on:
+      - linux
+
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v4
+
+      - name: Check build version
+        uses: actions/github-script@v7
+        with:
+          script: |
+            try {
+              const fs = require("fs")
+              const jsonString = fs.readFileSync("package.json")
+              const package = JSON.parse(jsonString)
+              if (package.version !== "${{ github.ref_name }}") {
+                 core.setFailed(`package.json version (${package.version}) not match version of release (${{ github.ref_name }})`) 
+              }
+            } catch(err) {
+              core.setFailed(err)
+            }
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Enable Yarn
+        run: corepack enable
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Lint
+        run: yarn lint
+
+      - name: Build
+        run: yarn build
+
+      - name: Publish package on NPM
+        run: npm publish --access public
+
+      - name: Archive Release
+        uses: thedoctor0/zip-release@master
+        with:
+          type: "zip"
+          filename: Release-${{github.ref_name}}.zip
+          directory: dist
+
+      - name: Pushing Releases
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/')
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          files: |
+            dist/Release-${{github.ref_name}}.zip
