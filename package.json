@@ -4,7 +4,6 @@
   "description": "React async modal",
   "author": "Paratco",
   "license": "ISC",
-  "private": false,
   "repository": {
     "type": "git",
     "url": "https://github.com/Paratco/async-modal.git"
@@ -23,9 +22,10 @@
   "sideEffects": false,
   "scripts": {
     "dev": "vite",
+    "build:check": "tsc --p ./tsconfig.build.json --noEmit",
     "build": "tsc --p ./tsconfig.build.json && vite build",
+    "format:check": "prettier --check lib/",
     "format": "prettier --write lib/",
-    "format-check": "prettier --check lib/",
     "lint": "eslint . --report-unused-disable-directives-severity error --max-warnings 0",
     "preview": "vite preview"
   },

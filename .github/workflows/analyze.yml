@@ -1,0 +1,40 @@
+name: Check the source code
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+env:
+  FONTAWESOME_PACKAGE_TOKEN : ${{ secrets.FONTAWESOME_PACKAGE_TOKEN }}
+
+jobs:
+  test:
+    name: Check the source code
+
+    runs-on:
+      - ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          check-latest: 'true'
+
+      - name: Enable Yarn
+        run: corepack enable
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Prettier
+        run: yarn format:check
+
+      - name: Lint
+        run: yarn lint
+
+      - name: Check build
+        run: yarn build:check
