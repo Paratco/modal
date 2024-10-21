@@ -1,14 +1,13 @@
-# Table of Contents
+# React Async Modal
 
-- [React Async Modal](#react-async-modal)
+This repository contains a custom React hook (useAsyncModal) and a modal context provider (AsyncModalProvider) for handling asynchronous modal dialogs in your React application.
+
+## Table of Contents
+
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Advanced Usage](#advanced-usage)
-
-## React Async Modal
-
-This repository contains a custom React hook (useAsyncModal) and a modal context provider (AsyncModalProvider) for handling asynchronous modal dialogs in your React application.
 
 ## Features
 
