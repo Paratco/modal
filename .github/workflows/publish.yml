@@ -4,13 +4,14 @@ on:
   release:
     types: [published]
 
-env:
-  NODE_AUTH_TOKEN: ${{ secrets.NPM_KEY }}
-
 jobs:
   build:
     runs-on:
-      - linux
+      - ubuntu-latest
+
+    permissions:
+      contents: read
+      id-token: write
 
     steps:
       - name: Check out the repo
@@ -35,6 +36,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          check-latest: 'true'
           registry-url: "https://registry.npmjs.org"
 
       - name: Enable Yarn
@@ -50,4 +52,6 @@ jobs:
         run: yarn build
 
       - name: Publish package on NPM
-        run: npm publish --access public
+        run: npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_KEY }}
