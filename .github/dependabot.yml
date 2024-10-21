@@ -1,0 +1,14 @@
+version: 2
+
+updates:
+  - package-ecosystem: "npm"
+    open-pull-requests-limit: 25
+    directory: "/"
+    schedule:
+      interval: "daily"
+      time: "04:00"
+      timezone: "Asia/Tehran"
+    reviewers:
+      - "Nik96i"
+    assignees:
+      - "Nik96i"
