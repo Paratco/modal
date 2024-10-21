@@ -8,6 +8,7 @@ This repository contains a custom React hook (useAsyncModal) and a modal context
 - [Installation](#installation)
 - [Usage](#usage)
 - [Advanced Usage](#advanced-usage)
+- [Example With MUI Library](#example-with-mui-library)
 
 ## Features
 
@@ -67,11 +68,17 @@ pnpm add @paratco/async-modal
          }
        }
 
+       function handleConfirm(){
+        console.log("Confirm");
+
+        onClose(true);
+       }
+
        return (
          <div className="modal">
            <!-- if don`t destructure data use like this: <p>{data?.message}</p> -->
            <p>{message}</p>
-           <button onClick={() => console.log("Confirm")}>Confirm</button>
+           <button onClick={() => handleConfirm()}>Confirm</button>
            <button onClick={() => handleClose()}>Cancel</button>
          </div>
        );
@@ -79,6 +86,8 @@ pnpm add @paratco/async-modal
 
      export default MyModal;
      ```
+
+     - `AsyncModalProps<boolean, Data>` is a return type
 
      Example without `data`
 
@@ -118,7 +127,7 @@ pnpm add @paratco/async-modal
      const { showModal } = useAsyncModal();
 
      const handleShowModal = async () => {
-       const result = await showModal<boolean, { message: string }>({
+       const result = await showModal({
          modal: MyModal,
          data: { message: "Are you sure you want to proceed?" },
          dismissible: true
@@ -149,7 +158,7 @@ pnpm add @paratco/async-modal
      const { showModal } = useAsyncModal();
 
      const handleShowModal = async () => {
-       const result = await showModal<boolean>({
+       const result = await showModal({
          modal: MyModal,
          dismissible: true
        });
@@ -190,7 +199,7 @@ The AsyncModalProvider can handle multiple modals across different components. E
 You can make modals undismissible by setting dismissible to false. This prevents the modal from closing unless the user interacts with it.
 
 ```tsx
-const result = await showModal<boolean>({
+const result = await showModal({
   modal: MyModal,
   data: { message: "You must confirm this action" },
   dismissible: false // Modal cannot be dismissed without action
@@ -202,27 +211,86 @@ const result = await showModal<boolean>({
 You can pass any type of data to your modal. This can be useful for passing context, form data, or other inputs that need to be shown or processed inside the modal.
 
 ```tsx
-const result = await showModal<number, { userId: number; username: string }>({
+const result = await showModal({
   modal: UserConfirmationModal,
   data: { userId: 42, username: "JohnDoe" }
 });
 ```
 
-### Error Handling in Modal
+## Example With MUI Library
 
-You can handle potential errors inside your modal and reject the promise if needed.
+MyModal Component:
 
 ```tsx
-const openModal = async () => {
-  try {
-    const result = await showModal<boolean>({
-      modal: MyModal,
-      data: { message: "Do you accept the terms?" }
-    });
+import { faXmark } from "@fortawesome/pro-duotone-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Modal, Box, Stack, Typography, IconButton, Divider } from "@mui/material";
+import type { ReactElement } from "react";
+import { AsyncModalProps, AsyncModalPropsBase } from "@paratco/async-modal";
 
-    if (!result) throw new Error("User did not accept");
-  } catch (error) {
-    console.error(error);
+interface Data extends AsyncModalPropsBase {
+  readonly ban: string | null;
+}
+
+export default function MyModal({ onClose, dismissible, data }: AsyncModalProps<boolean, Data>): ReactElement {
+  function handleClose(): void {
+    if (dismissible) {
+      onClose();
+    }
   }
-};
+
+  return (
+    <Modal
+      open={true}
+      onClose={() => {
+        handleClose();
+      }}
+    >
+      <Box>
+        <Stack direction="row" justifyContent="space-between" pb={2}>
+          <Typography component="h2">Reason:</Typography>
+
+          <Stack alignItems="end">
+            <IconButton
+              size="small"
+              onClick={() => {
+                handleClose();
+              }}
+            >
+              <FontAwesomeIcon icon={faXmark} />
+            </IconButton>
+          </Stack>
+        </Stack>
+
+        <Divider />
+
+        <Typography sx={{ mt: 2 }}>{data?.ban}</Typography>
+      </Box>
+    </Modal>
+  );
+}
+```
+
+BaseComponent:
+
+```tsx
+  import { useAsyncModal } from "@paratco/async-modal";
+  import MyModal from './components/MyModal';
+
+  export default ExampleComponent () {
+    const { showModal } = useAsyncModal();
+
+   const handleOpenReasonModal = (): void => {
+    void showModal({ modal: MyModal, dismissible: true, data: { ban } });
+  };
+
+    return (
+     <Stack alignItems="center" direction="row" gap={1}>
+        <FontAwesomeIcon icon={faCommentExclamation} />
+        <Typography component={Button} p={0} variant="body2" fontWeight="bold" onClick={handleOpenReasonModal}>
+          {t("students.whyBan")}
+        </Typography>
+      </Stack>
+    );
+  };
 ```
