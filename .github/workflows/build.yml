@@ -48,3 +48,6 @@ jobs:
 
       - name: Build
         run: yarn build
+
+      - name: Publish package on NPM
+        run: npm publish --access public
