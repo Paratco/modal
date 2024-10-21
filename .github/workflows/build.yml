@@ -48,19 +48,3 @@ jobs:
 
       - name: Build
         run: yarn build
-
-      - name: Archive Release
-        uses: thedoctor0/zip-release@master
-        with:
-          type: "zip"
-          filename: Release-${{github.ref_name}}.zip
-          directory: dist
-
-      - name: Pushing Releases
-        uses: softprops/action-gh-release@v2
-        if: startsWith(github.ref, 'refs/tags/')
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          files: |
-            dist/Release-${{github.ref_name}}.zip
