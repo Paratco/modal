@@ -1,4 +1,4 @@
-name: Build And Publish To GitHub
+name: Publish Package To GitHub
 
 on:
   release:
@@ -46,10 +46,16 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
+      - name: Prettier
+        run: yarn format:check
+
       - name: Lint
         run: yarn lint
 
-      - name: Publish package on GitHub
+      - name: Build
+        run: yarn build
+
+      - name: Publish
         run: npm publish --provenance --access public --registry https://npm.pkg.github.com/
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
