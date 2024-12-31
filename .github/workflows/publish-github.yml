@@ -1,0 +1,52 @@
+name: Build And Publish To GitHub
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    runs-on:
+      - ubuntu-latest
+
+    permissions:
+      packages: write
+      contents: read
+      id-token: write
+
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v4
+
+      - name: Check build version
+        uses: actions/github-script@v7
+        with:
+          script: |
+            try {
+              const fs = require("fs")
+              const jsonString = fs.readFileSync("package.json")
+              const package = JSON.parse(jsonString)
+              if (package.version !== "${{ github.ref_name }}") {
+                 core.setFailed(`package.json version (${package.version}) not match version of release (${{ github.ref_name }})`) 
+              }
+            } catch(err) {
+              core.setFailed(err)
+            }
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          check-latest: 'true'
+          registry-url: https://npm.pkg.github.com/
+
+      - name: Enable Yarn
+        run: corepack enable
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Publish package on GitHub
+        run: npm publish --provenance --access public --registry https://npm.pkg.github.com/
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
