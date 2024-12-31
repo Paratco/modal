@@ -46,6 +46,9 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
+      - name: Lint
+        run: yarn lint
+
       - name: Publish package on GitHub
         run: npm publish --provenance --access public --registry https://npm.pkg.github.com/
         env:
