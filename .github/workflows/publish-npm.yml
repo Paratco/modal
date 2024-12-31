@@ -1,4 +1,4 @@
-name: Build And Publish To NPM
+name: Publish Package To NPM
 
 on:
   release:
@@ -10,6 +10,7 @@ jobs:
       - ubuntu-latest
 
     permissions:
+      packages: write
       contents: read
       id-token: write
 
@@ -35,9 +36,9 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           check-latest: 'true'
-          registry-url: "https://registry.npmjs.org"
+          registry-url: https://registry.npmjs.org/
 
       - name: Enable Yarn
         run: corepack enable
@@ -45,13 +46,16 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
+      - name: Prettier
+        run: yarn format:check
+
       - name: Lint
         run: yarn lint
 
       - name: Build
         run: yarn build
 
-      - name: Publish package on NPM
+      - name: Publish
         run: npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_KEY }}
