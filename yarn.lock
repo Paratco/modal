@@ -1001,8 +1001,8 @@ __metadata:
   linkType: soft
 
 "@paratco/eslint-config@npm:^1.0.4":
-  version: 1.0.4
-  resolution: "@paratco/eslint-config@npm:1.0.4"
+  version: 1.0.7
+  resolution: "@paratco/eslint-config@npm:1.0.7"
   dependencies:
     "@eslint/js": "npm:^9.17.0"
     "@stylistic/eslint-plugin": "npm:^2.12.1"
@@ -1023,7 +1023,7 @@ __metadata:
   dependenciesMeta:
     prettier:
       optional: true
-  checksum: 10c0/978d23c707d51082d6aff294141ac71667cdc9e77e542a284076bcc3fef67c073ab1572b4209d3d0a382ae8d6c2c14029a50c6d4c8f11e12ea9ca284c4dcad22
+  checksum: 10c0/357d8fd978276e7625061c1276b93ae7ffa35dd5a033cc96d04421ac4233d2b6e0b63f57d0cbd7ffd46510373b1008178c1f64f3005d2ef2a381a74cb6921cee
   languageName: node
   linkType: hard
 
