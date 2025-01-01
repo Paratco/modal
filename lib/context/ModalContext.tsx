@@ -30,6 +30,8 @@ interface AsyncModalProviderProps {
   readonly children: ReactElement;
 }
 
+// TODO: Fix fast refresh warning
+// eslint-disable-next-line react-refresh/only-export-components
 export const ModalContext = createContext<ModalContextType | null>(null);
 
 export function AsyncModalProvider<R, P extends AsyncModalPropsBase | undefined = undefined>({
