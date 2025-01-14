@@ -5096,9 +5096,9 @@ __metadata:
   linkType: hard
 
 "stylis@npm:^4.3.4":
-  version: 4.3.4
-  resolution: "stylis@npm:4.3.4"
-  checksum: 10c0/4899c2674cd2538e314257abd1ba7ea3c2176439659ddac6593c78192cfd4a06f814a0a4fc69bc7f8fcc6b997e13d383dd9b578b71074746a0fb86045a83e42d
+  version: 4.3.5
+  resolution: "stylis@npm:4.3.5"
+  checksum: 10c0/da2976e05a9bacd87450b59d64c17669e4a1043c01a91213420d88baeb4f3bcc58409335e5bbce316e3ba570e15d63e1393ec56cf1e60507782897ab3bb04872
   languageName: node
   linkType: hard
 
