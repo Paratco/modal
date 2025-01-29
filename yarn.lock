@@ -791,7 +791,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/material@npm:^6.3.0":
+"@mui/material@npm:^6.4.1":
   version: 6.4.1
   resolution: "@mui/material@npm:6.4.1"
   dependencies:
@@ -989,33 +989,33 @@ __metadata:
   dependencies:
     "@emotion/react": "npm:^11.14.0"
     "@emotion/styled": "npm:^11.14.0"
-    "@mui/material": "npm:^6.3.0"
-    "@paratco/eslint-config": "npm:^1.0.7"
+    "@mui/material": "npm:^6.4.1"
+    "@paratco/eslint-config": "npm:^1.0.10"
     "@paratco/prettier-config": "npm:^0.1.1"
-    "@types/node": "npm:^22.10.3"
-    "@types/react": "npm:^19.0.2"
-    "@types/react-dom": "npm:^19.0.2"
+    "@types/node": "npm:^22.12.0"
+    "@types/react": "npm:^19.0.8"
+    "@types/react-dom": "npm:^19.0.3"
     "@types/stylis": "npm:^4.2.7"
     "@vitejs/plugin-react": "npm:^4.3.4"
-    eslint: "npm:^9.17.0"
+    eslint: "npm:^9.19.0"
     globals: "npm:^15.14.0"
     prettier: "npm:^3.4.2"
     react: "npm:^19.0.0"
     react-dom: "npm:^19.0.0"
-    stylis: "npm:^4.3.4"
+    stylis: "npm:^4.3.5"
     stylis-plugin-rtl: "npm:^2.1.1"
     tslib: "npm:^2.8.1"
-    typescript: "npm:^5.7.2"
-    typescript-eslint: "npm:^8.19.0"
-    vite: "npm:^6.0.6"
-    vite-plugin-dts: "npm:^4.4.0"
+    typescript: "npm:^5.7.3"
+    typescript-eslint: "npm:^8.22.0"
+    vite: "npm:^6.0.11"
+    vite-plugin-dts: "npm:^4.5.0"
   peerDependencies:
     react: ^18.3.1
     react-dom: ^18.3.1
   languageName: unknown
   linkType: soft
 
-"@paratco/eslint-config@npm:^1.0.7":
+"@paratco/eslint-config@npm:^1.0.10":
   version: 1.0.10
   resolution: "@paratco/eslint-config@npm:1.0.10"
   dependencies:
@@ -1375,7 +1375,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^22.10.3":
+"@types/node@npm:^22.12.0":
   version: 22.12.0
   resolution: "@types/node@npm:22.12.0"
   dependencies:
@@ -1398,7 +1398,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^19.0.2":
+"@types/react-dom@npm:^19.0.3":
   version: 19.0.3
   resolution: "@types/react-dom@npm:19.0.3"
   peerDependencies:
@@ -1416,7 +1416,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:^19.0.2":
+"@types/react@npm:^19.0.8":
   version: 19.0.8
   resolution: "@types/react@npm:19.0.8"
   dependencies:
@@ -2785,7 +2785,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^9.17.0":
+"eslint@npm:^9.17.0, eslint@npm:^9.19.0":
   version: 9.19.0
   resolution: "eslint@npm:9.19.0"
   dependencies:
@@ -5095,7 +5095,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stylis@npm:^4.3.4":
+"stylis@npm:^4.3.5":
   version: 4.3.5
   resolution: "stylis@npm:4.3.5"
   checksum: 10c0/da2976e05a9bacd87450b59d64c17669e4a1043c01a91213420d88baeb4f3bcc58409335e5bbce316e3ba570e15d63e1393ec56cf1e60507782897ab3bb04872
@@ -5244,7 +5244,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript-eslint@npm:^8.19.0":
+"typescript-eslint@npm:^8.19.0, typescript-eslint@npm:^8.22.0":
   version: 8.22.0
   resolution: "typescript-eslint@npm:8.22.0"
   dependencies:
@@ -5268,7 +5268,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^5.7.2":
+"typescript@npm:^5.7.3":
   version: 5.7.3
   resolution: "typescript@npm:5.7.3"
   bin:
@@ -5288,7 +5288,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A^5.7.2#optional!builtin<compat/typescript>":
+"typescript@patch:typescript@npm%3A^5.7.3#optional!builtin<compat/typescript>":
   version: 5.7.3
   resolution: "typescript@patch:typescript@npm%3A5.7.3#optional!builtin<compat/typescript>::version=5.7.3&hash=5786d5"
   bin:
@@ -5372,7 +5372,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite-plugin-dts@npm:^4.4.0":
+"vite-plugin-dts@npm:^4.5.0":
   version: 4.5.0
   resolution: "vite-plugin-dts@npm:4.5.0"
   dependencies:
@@ -5395,7 +5395,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^6.0.6":
+"vite@npm:^6.0.11":
   version: 6.0.11
   resolution: "vite@npm:6.0.11"
   dependencies:
