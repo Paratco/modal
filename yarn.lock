@@ -597,7 +597,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/js@npm:9.19.0, @eslint/js@npm:^9.17.0":
+"@eslint/js@npm:9.19.0, @eslint/js@npm:^9.19.0":
   version: 9.19.0
   resolution: "@eslint/js@npm:9.19.0"
   checksum: 10c0/45dc544c8803984f80a438b47a8e578fae4f6e15bc8478a703827aaf05e21380b42a43560374ce4dad0d5cb6349e17430fc9ce1686fed2efe5d1ff117939ff90
@@ -1009,29 +1009,30 @@ __metadata:
   linkType: soft
 
 "@paratco/eslint-config@npm:^1.0.10":
-  version: 1.0.10
-  resolution: "@paratco/eslint-config@npm:1.0.10"
+  version: 1.0.12
+  resolution: "@paratco/eslint-config@npm:1.0.12"
   dependencies:
-    "@eslint/js": "npm:^9.17.0"
-    "@stylistic/eslint-plugin": "npm:^2.12.1"
+    "@eslint/js": "npm:^9.19.0"
+    "@stylistic/eslint-plugin": "npm:^2.13.0"
     "@types/eslint__js": "npm:^8.42.3"
-    eslint: "npm:^9.17.0"
+    eslint: "npm:^9.19.0"
     eslint-config-prettier: "npm:^10.0.1"
     eslint-import-resolver-typescript: "npm:^3.7.0"
     eslint-plugin-import-x: "npm:^4.6.1"
-    eslint-plugin-react: "npm:^7.37.3"
+    eslint-plugin-react: "npm:^7.37.4"
     eslint-plugin-react-hooks: "npm:5.1.0"
-    eslint-plugin-react-refresh: "npm:^0.4.16"
+    eslint-plugin-react-refresh: "npm:^0.4.18"
+    eslint-plugin-unused-imports: "npm:^4.1.4"
     globals: "npm:^15.14.0"
     prettier: "npm:^3.4.2"
-    typescript-eslint: "npm:^8.19.0"
+    typescript-eslint: "npm:^8.22.0"
   peerDependencies:
-    eslint: ^9.12.0
-    typescript-eslint: ^8.9.0
+    eslint: ^9.19.0
+    typescript-eslint: ^8.22.0
   dependenciesMeta:
     prettier:
       optional: true
-  checksum: 10c0/4d14990481c0e466f87587c0ee387a2c28487e9561d423b6ee4e65a1d98fdea37f290133caf185d2a39417fd26b6c6047c85fc66ff8ce7302b31c8be6a07a37c
+  checksum: 10c0/5d72b779de5fce347b3457b2b1c8ddee6cfca99df1203ebac0a534d03fe6fea7c5b2888c9191ca7642169e404cd854bd58fa3e52a375f6b85f5d7bdb19e7af59
   languageName: node
   linkType: hard
 
@@ -1265,7 +1266,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@stylistic/eslint-plugin@npm:^2.12.1":
+"@stylistic/eslint-plugin@npm:^2.13.0":
   version: 2.13.0
   resolution: "@stylistic/eslint-plugin@npm:2.13.0"
   dependencies:
@@ -2667,7 +2668,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-react-refresh@npm:^0.4.16":
+"eslint-plugin-react-refresh@npm:^0.4.18":
   version: 0.4.18
   resolution: "eslint-plugin-react-refresh@npm:0.4.18"
   peerDependencies:
@@ -2676,7 +2677,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-react@npm:^7.37.3":
+"eslint-plugin-react@npm:^7.37.4":
   version: 7.37.4
   resolution: "eslint-plugin-react@npm:7.37.4"
   dependencies:
@@ -2704,6 +2705,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eslint-plugin-unused-imports@npm:^4.1.4":
+  version: 4.1.4
+  resolution: "eslint-plugin-unused-imports@npm:4.1.4"
+  peerDependencies:
+    "@typescript-eslint/eslint-plugin": ^8.0.0-0 || ^7.0.0 || ^6.0.0 || ^5.0.0
+    eslint: ^9.0.0 || ^8.0.0
+  peerDependenciesMeta:
+    "@typescript-eslint/eslint-plugin":
+      optional: true
+  checksum: 10c0/3899f64b0e8b23fa6b81e2754fc10f93d8741e051d70390a8100ca39af7878bde8625f234b76111af69562ef2512104b52c3703e986ccb3ac9adc07911896acf
+  languageName: node
+  linkType: hard
+
 "eslint-scope@npm:^8.2.0":
   version: 8.2.0
   resolution: "eslint-scope@npm:8.2.0"
@@ -2728,7 +2742,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^9.17.0, eslint@npm:^9.19.0":
+"eslint@npm:^9.19.0":
   version: 9.19.0
   resolution: "eslint@npm:9.19.0"
   dependencies:
@@ -5208,7 +5222,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript-eslint@npm:^8.19.0, typescript-eslint@npm:^8.22.0":
+"typescript-eslint@npm:^8.22.0":
   version: 8.22.0
   resolution: "typescript-eslint@npm:8.22.0"
   dependencies:
