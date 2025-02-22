@@ -37,7 +37,7 @@
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "@mui/material": "^6.4.5",
-    "@paratco/eslint-config": "^1.0.13",
+    "@paratco/eslint-config": "^1.0.14",
     "@paratco/prettier-config": "^0.1.1",
     "@types/node": "^22.13.5",
     "@types/react": "^19.0.10",
